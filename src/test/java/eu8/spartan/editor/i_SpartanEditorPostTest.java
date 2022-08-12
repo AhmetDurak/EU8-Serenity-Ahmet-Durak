@@ -1,7 +1,6 @@
 package eu8.spartan.editor;
 
 import io.restassured.http.ContentType;
-import io.restassured.response.Response;
 import net.serenitybdd.junit5.SerenityTest;
 import net.serenitybdd.rest.Ensure;
 import org.junit.jupiter.api.Disabled;
@@ -9,13 +8,10 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
-import org.junit.jupiter.params.provider.MethodSource;
-import utilities.ExcelUtil;
 import utilities.SpartanNewBase;
 import utilities.SpartanUtil;
 
 import java.util.LinkedHashMap;
-import java.util.List;
 import java.util.Map;
 
 import static net.serenitybdd.rest.RestRequests.given;
@@ -23,7 +19,7 @@ import static net.serenitybdd.rest.SerenityRest.lastResponse;
 import static org.hamcrest.Matchers.*;
 
 @SerenityTest
-public class SpartanEditorPostTest extends SpartanNewBase {
+public class i_SpartanEditorPostTest extends SpartanNewBase {
 
     @Disabled
     @DisplayName("Editor should be able to POST")

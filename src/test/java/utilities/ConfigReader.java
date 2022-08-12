@@ -7,11 +7,7 @@ import net.thucydides.core.util.SystemEnvironmentVariables;
 
 public class ConfigReader {
 
-    private static EnvironmentVariables environmentVariables ;
-    static {
-        environmentVariables =
-                SystemEnvironmentVariables.createEnvironmentVariables();
-    }
+    private static EnvironmentVariables environmentVariables =SystemEnvironmentVariables.createEnvironmentVariables();
 
     public static String getProperty(String propertyName){
 
