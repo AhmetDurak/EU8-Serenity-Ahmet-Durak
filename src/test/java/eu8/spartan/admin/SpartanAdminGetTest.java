@@ -1,4 +1,4 @@
-package com.b22.spartan.admin;
+package eu8.spartan.admin;
 
 import io.restassured.http.ContentType;
 import net.serenitybdd.junit5.SerenityTest;
@@ -8,18 +8,19 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static io.restassured.RestAssured.baseURI;
+import static io.restassured.RestAssured.*;
 import static net.serenitybdd.rest.SerenityRest.given;
 import static net.serenitybdd.rest.SerenityRest.lastResponse;
 import static org.hamcrest.Matchers.is;
+
 @Disabled
 @SerenityTest
 public class SpartanAdminGetTest {
 
     @BeforeAll
     public static void init(){
-        //save baseurl inside this variable so that we dont need to type each http method.
-        baseURI = "http://44.195.19.167:7000";
+        //save baseurl inside this variable so that we don't need to type each http method.
+        baseURI = "http://54.89.215.84:7000";
 
     }
 
@@ -30,9 +31,9 @@ public class SpartanAdminGetTest {
                 .accept(ContentType.JSON)
                 .and()
                 .auth().basic("admin","admin")
-        .when()
+                .when()
                 .get("/api/spartans")
-        .then()
+                .then()
                 .statusCode(200)
                 .and()
                 .contentType(ContentType.JSON);
@@ -41,7 +42,7 @@ public class SpartanAdminGetTest {
     @Test
     public void getOneSpartan(){
 
-            given()
+        given()
                 .accept(ContentType.JSON)
                 .and()
                 .auth().basic("admin","admin")
@@ -77,18 +78,14 @@ public class SpartanAdminGetTest {
                 .get("/api/spartans/{id}");
 
         //Serenity way of assertion
+        //It'll be useful, if you want to share what you assert in the report.
 
-        Ensure.that("Status code is 200",validatableResponse -> validatableResponse.statusCode(201) );
+        //                                  lambda-> this is like simplified method
+        Ensure.that("Status code is 200", validatableResponse -> validatableResponse.statusCode(200) );
 
         Ensure.that("Content-type is JSON",vRes -> vRes.contentType(ContentType.JSON));
 
         Ensure.that("Id is 15", vRes -> vRes.body("id",is(15)));
-
-
-
-
-
     }
-
 
 }

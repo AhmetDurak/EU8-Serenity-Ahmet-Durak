@@ -1,4 +1,4 @@
-package com.utilities;
+package utilities;
 
 
 import net.serenitybdd.core.environment.EnvironmentSpecificConfiguration;
