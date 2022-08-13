@@ -18,6 +18,7 @@ import static net.serenitybdd.rest.RestRequests.given;
 import static net.serenitybdd.rest.SerenityRest.lastResponse;
 import static org.hamcrest.Matchers.*;
 
+@Disabled
 @SerenityTest
 public class i_SpartanEditorPostTest extends SpartanNewBase {
 
